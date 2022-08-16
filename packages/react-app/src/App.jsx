@@ -554,13 +554,13 @@ function App(props) {
               <div>ETH Locked 🔒 in Staker Contract:</div>
               <Balance balance={balanceStaked} fontSize={64} />
             </div>
-
-            <div style={{ padding: 8 }}>
-              <Button
-                type={"default"}
-                onClick={() => {
-                  tx(writeContracts.Staker.execute());
-                }}
+            <Button
+              type={balanceStaked ? "success" : "primary"}
+              onClick={() => {
+                tx(writeContracts.Staker.stake({ value: ethers.utils.parseEther("0.5") }));
+^ }}
+>
+              🥩 Stake 0.5 ether!
               >
                 📡 Execute!
               </Button>
